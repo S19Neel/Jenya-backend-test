@@ -4,6 +4,7 @@ const cors = require('cors');
 const dbConnect = require('./db/db');
 const userRouter = require('./routes/user.route');
 const eventRouter = require('./routes/event.route');
+const adminRouter = require('./routes/admin.route');
 const cookieParser = require('cookie-parser');
 
 dbConnect();
@@ -19,5 +20,6 @@ app.get('/', (req, res) => {
 
 app.use('/user', userRouter)
 app.use('/event', eventRouter)
+app.use('/admin', adminRouter)
 
 module.exports = app;

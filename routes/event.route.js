@@ -18,8 +18,8 @@ router.put('/update/:id', [
     body('date').isString().notEmpty(),
     body('capacity').isNumeric().notEmpty(),
     body('availableSeats').isNumeric().notEmpty(),
-], authMiddleware.authUser, eventController.updateEvent);
+], authMiddleware.authAdmin, eventController.updateEvent);
 
-router.delete('/delete/:id', authMiddleware.authUser, eventController.deleteEvent);
+router.delete('/delete/:id', authMiddleware.authAdmin, eventController.deleteEvent);
 
 module.exports = router;
