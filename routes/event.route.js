@@ -9,7 +9,7 @@ router.post('/create', [
     body('date').isString().notEmpty(),
     body('capacity').isNumeric().notEmpty(),
     body('availableSeats').isNumeric().notEmpty(),
-], eventController.createEvent);
+], authMiddleware.authAdmin, eventController.createEvent);
 
 router.get('/all-events', eventController.getAllEvents);
 
